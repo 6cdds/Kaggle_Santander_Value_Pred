@@ -9,17 +9,21 @@ def run_rf():
      
      #f = open('C:\Users\Colleen\Documents\Kaggle_Santander_Value_Pred\data\pca_train_data.csv', 'r')
      #f = open('C:\Users\Colleen\Documents\Kaggle_Santander_Value_Pred\scale_train_data.csv', 'r')
-     f = open('C:\\Users\\Colleen\\Documents\\Kaggle_Santander_Value_Pred\\new_scale_train_data.csv', 'r')
+     #f = open('C:\\Users\\Colleen\\Documents\\Kaggle_Santander_Value_Pred\\new_scale_train_data.csv', 'r')
+     f = open("D:\\Cary's Stuff\\Documents\\Colleen's Stuff\\Kaggle_Santander_Value_Pred\\data\\pca_train_data.csv", 'r')
+
      pca_train_data = pd.read_csv(f).iloc[:,1:]
      f.close()    
      
 
      
-     f = open('C:\Users\Colleen\Documents\Kaggle_Santander_Value_Pred\data\pca_y_train_data.csv', 'r')
+     #f = open('C:\Users\Colleen\Documents\Kaggle_Santander_Value_Pred\data\pca_y_train_data.csv', 'r')
+     f = open("D:\\Cary's Stuff\\Documents\\Colleen's Stuff\\Kaggle_Santander_Value_Pred\\data\\trans_target.csv", 'r')
      y = pd.read_csv(f)['target']
      f.close()
 
-     f = open('C:\Users\Colleen\Documents\Kaggle_Santander_Value_Pred\sel_feats.p', 'r')
+     #f = open('C:\Users\Colleen\Documents\Kaggle_Santander_Value_Pred\sel_feats.p', 'r')
+     f = open("D:\Cary's Stuff\Documents\Colleen's Stuff\Kaggle_Santander_Value_Pred\data\sel_feats.p", 'r')     
      sel_feats = pickle.load(f)
      f.close()
 
@@ -31,7 +35,9 @@ def run_rf():
      rf.fit(pca_train_data.loc[:, map(str, sel_feats)], y)
      #rf.fit(pca_train_data, y)
      
-     f = open('C:\\Users\\Colleen\\Documents\\Kaggle_Santander_Value_Pred\\data\\rf_sel_feats.p', 'w')
+     #f = open('C:\\Users\\Colleen\\Documents\\Kaggle_Santander_Value_Pred\\data\\rf_sel_feats.p', 'w')
+     #f = open("D:\\Cary's Stuff\\Documents\\Colleen's Stuff\\Kaggle_Santander_Value_Pred\\data\\rf.p", 'w')
+     f = open("D:\\Cary's Stuff\\Documents\\Colleen's Stuff\\Kaggle_Santander_Value_Pred\\data\\rf_sel_feats.p", 'w')     
      pickle.dump(rf, f)
      f.close()
      
